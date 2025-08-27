@@ -1,3 +1,4 @@
+
 const gallery = document.getElementById("gallery");
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
@@ -5,6 +6,10 @@ const caption = document.getElementById("caption");
 
 let photos = [];
 let currentIndex = 0;
+
+// let basePath = "";
+const basePath = window.location.hostname.includes("github.io") ? "/lookbook/" : "/";
+
 
 // 將日期字串轉換成月份標題 (e.g., "2025-08-28" → "August 2025")
 function formatMonth(dateStr) {
@@ -16,10 +21,21 @@ function formatMonth(dateStr) {
 
 // 載入 JSON
 async function loadPhotos() {
-  const res = await fetch("photos.json");
+  const res = await fetch(basePath + "photos.json");
   photos = await res.json();
+
+  // Debug log
+  console.log("Loaded photos:", photos);
+
+  photos = photos.map(p => ({
+  ...p,
+  src: basePath + p.src
+}));
+  console.log("Mapped photos:", photos);
+
   renderGallery("all");
 }
+
 
 // 建立相片牆 (依月份分組)
 function renderGallery(filter="all") {
