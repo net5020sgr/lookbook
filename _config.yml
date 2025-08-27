@@ -1,8 +1,0 @@
-title: "My Lookbook"
-theme: minima
-baseurl: ""
-url: "https://yourname.github.io/lookbook"
-
-collections:
-  posts:
-    output: true

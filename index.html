@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Lookbook</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>👗 My Lookbook</h1>
+    <nav>
+      <button class="filter-btn" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="summer">Summer</button>
+      <button class="filter-btn" data-filter="formal">Formal</button>
+      <button class="filter-btn" data-filter="casual">Casual</button>
+    </nav>
+  </header>
+
+  <main id="gallery"></main>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <div class="caption" id="caption"></div>
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
